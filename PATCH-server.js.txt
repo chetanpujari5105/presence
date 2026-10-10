@@ -1,0 +1,5 @@
+ONE-LINE CHANGE TO server.js
+Insert this line in server.js directly ABOVE the comment  "/* ---- pages ---- */"
+(after the /api/admin/logout route, so admin routes are already protected by requireAdmin):
+
+require('./applications')(app, { sql, rateLimit, clean, cleanMultiline, Oops, notify });
