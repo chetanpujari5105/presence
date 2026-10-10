@@ -1,5 +1,5 @@
 /* Model applications — public form endpoint + protected review endpoints.
-   Mounted from server.js with one line (see PATCH-server.js.txt). */
+   Mounted from server.js (already wired in this version). */
 const crypto = require('node:crypto');
 
 const GENDERS = ['Male', 'Female', 'Other', 'Prefer not to say'];

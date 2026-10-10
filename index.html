@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presence. — a gentleman, by the hour</title>
+<meta name="description" content="A premium human, for hire by the hour. ₹10,000. Ladies only. Zero judgement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Federant&family=Karla:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   0 · base
+================================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0a0908; --bone:#b8b19a; --crim:#c9161d;
+  --paper:#f6f1e7; --paper2:#f1e9da; --sand:#e9dec9; --line:#dcd2bc;
+  --ink2:#39362b; --mut:#7a7361; --sage:#6d7752; --ts:#c98a63;
+  --df:"Federant","Iowan Old Style",Georgia,serif;
+  --sans:"Karla","Helvetica Neue",sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);font:400 1.02rem/1.85 var(--sans);color:var(--ink2);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--crim);color:var(--paper)}
+:focus-visible{outline:2px solid var(--crim);outline-offset:3px;border-radius:4px}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer}
+.df{font-family:var(--df);font-weight:400}
+
+/* ================================================================
+   1 · the specimen — six scroll-scrubbed frames
+================================================================ */
+#specimen{position:relative;height:calc(100vh * 5.5);height:calc(100svh * 5.5);background:var(--ink)}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--ink);
+  color:var(--bone);container-type:size;container-name:s;user-select:none;--red:var(--crim)}
+#cv{position:absolute;inset:0;width:100%;height:100%}
+.glow{position:absolute;left:0;top:0;border-radius:50%;pointer-events:none;will-change:transform;
+  background:radial-gradient(closest-side,rgba(201,22,29,.22),rgba(201,22,29,.07) 45%,transparent 70%)}
+.edge{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(184,177,154,.08) 100%)}
+.fr{position:absolute;inset:0;pointer-events:none}
+.fr a,.fr button,.fr .g{pointer-events:auto}
+[data-sc]{opacity:0;visibility:hidden}
+.cap{position:absolute;left:5cqw;bottom:5cqh;font:700 9px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--bone)}
+.cap b{color:var(--red);font-weight:700}
+
+/* frame nav */
+.snav{position:absolute;right:3cqw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;pointer-events:auto;z-index:5}
+.snav button{display:flex;align-items:center;gap:10px;justify-content:flex-end;background:none;border:0;padding:5px 0;color:inherit}
+.snav .tick{display:block;height:1px;width:14px;background:currentColor;opacity:.45;transition:width .4s,opacity .3s,background-color .3s}
+.snav .lab{opacity:0;transform:translateX(6px);transition:opacity .3s,transform .3s;
+  font:700 8px var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.snav button:hover .lab,.snav button:focus-visible .lab{opacity:1;transform:none}
+.snav button[aria-current] .tick{width:34px;opacity:1;background:var(--red)}
+
+/* 0 · cover */
+.cov-top{position:absolute;left:5cqw;right:5cqw;top:5cqh;display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.cov-name{font-size:clamp(20px,3.3cqw,46px);line-height:.88;letter-spacing:.02em;text-transform:uppercase}
+.cov-desc{max-width:25cqw;font-size:clamp(10px,.95cqw,13px);line-height:1.35;text-align:justify}
+.cov-specs{list-style:none;font-size:clamp(10px,.95cqw,13px);line-height:1.35}
+.cov-side{font-size:clamp(18px,2.6cqw,38px);line-height:.9;text-align:right;text-transform:uppercase}
+.word{position:absolute;left:50%;top:61%;transform:translate(-50%,-50%);font-size:min(21cqw,33cqh);line-height:1;white-space:nowrap}
+.word h2{margin:0;font:inherit}
+.svc-tag{position:absolute;right:.04em;bottom:84%;font-size:.36em}
+.chw{display:inline-block;will-change:transform}
+.ch{display:inline-block;animation:lys-in 1.3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes lys-in{from{opacity:0;transform:translateY(.35em) rotate(4deg);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+.cov-bot{position:absolute;left:5cqw;right:5cqw;bottom:5cqh;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.cov-cred{display:flex;align-items:center;gap:14px}
+.cov-cred .yr{font:300 clamp(20px,2.4cqw,34px) var(--sans);letter-spacing:-.02em}
+.cov-cred .mf{font:400 9px var(--sans);letter-spacing:.08em;text-transform:uppercase;line-height:1.2;
+  border-bottom:1px solid rgba(184,177,154,.5);padding-bottom:6px;padding-right:6cqw}
+.cov-cols{display:flex;gap:20px;color:var(--red);font:400 8px var(--sans);letter-spacing:.06em;text-transform:uppercase;line-height:1.25}
+.cov-cols span{display:block;color:var(--bone)}
+
+/* 2 · specimen grid */
+.spec-grid{position:absolute;left:6cqw;right:6cqw;top:12cqh;bottom:20cqh;
+  display:grid;grid-template-columns:1fr min(30cqw,34cqh) 1fr;column-gap:2cqw;align-items:center}
+.spec-col{display:flex;flex-direction:column;gap:2.4cqh}
+.spec-col.right{text-align:right}
+.spec-col>div{font-family:var(--df)}
+.g{display:inline-block;cursor:default;transition:color .25s,transform .25s cubic-bezier(.2,.8,.2,1)}
+.g:hover{color:var(--red);transform:translateY(-.08em) scale(1.35)}
+.spec-mid{position:relative;height:100%;text-align:center}
+.spec-mid .nm{position:absolute;width:100%;top:34%;font-size:min(2.6cqw,3.6cqh);line-height:1}
+.spec-mid .nm small{font-size:.5em}
+.spec-mid .ins{position:absolute;width:100%;top:52%;line-height:1.05}
+#ig{font-family:var(--df);font-size:min(2.8cqw,3.8cqh);transition:font-size .35s cubic-bezier(.2,.8,.2,1),color .3s}
+#ig.big{font-size:min(9cqw,12cqh);color:var(--red)}
+#icp{font:700 8px var(--sans);letter-spacing:.25em;opacity:.6;min-height:1.3em;margin-top:2px}
+#nums{font-family:var(--df);font-size:min(2.2cqw,3cqh)}
+
+/* 3 · repertoire */
+.rep{position:absolute;left:12cqw;top:22cqh;max-width:70cqw}
+.rep-lead{font-size:min(3.2cqw,4.4cqh);font-style:italic;margin-bottom:2.6cqh}
+.rep p{line-height:1.25}
+
+/* 4 · bloom / terms */
+.bloom{position:absolute;left:12cqw;top:50%;transform:translateY(-50%)}
+.bl{font-size:min(6cqw,8.5cqh);line-height:1.06}
+.bl.small{font-size:min(2.2cqw,3cqh);font-style:italic}
+
+/* 5 · finale */
+.fin{position:absolute;left:50%;top:44cqh;transform:translateX(-50%);text-align:center;width:max-content;max-width:90cqw}
+.fin-word{position:relative;font-size:min(11cqw,17cqh);line-height:1}
+.fin-ring{position:absolute;left:-8%;top:-24%;width:116%;height:148%;overflow:visible;pointer-events:none}
+.fin-ring path{fill:none;stroke:var(--red);stroke-width:1.4}
+.liga-btn{position:absolute;right:-3.4em;bottom:.1em;background:none;border:1px solid rgba(184,177,154,.45);
+  border-radius:999px;padding:.35em .9em;font:700 9px var(--sans);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--bone);transition:color .3s,border-color .3s}
+.liga-btn.on{color:var(--red);border-color:var(--red)}
+.fin-multi{margin-top:5cqh;font-size:min(2.4cqw,3.2cqh);letter-spacing:.04em}
+.fin-multi i{font-style:normal;color:var(--red)}
+.fin-links{position:absolute;left:50%;bottom:8cqh;transform:translateX(-50%);display:flex;gap:5cqw}
+.fin-links a{font-family:var(--df);font-size:min(2.4cqw,3.4cqh);color:var(--bone);text-decoration:none;
+  border-bottom:1px solid rgba(184,177,154,.4);padding-bottom:4px;transition:color .3s,border-color .3s}
+.fin-links a:hover{color:var(--red);border-color:var(--red)}
+
+@container s (max-width:720px){.cov-desc,.cov-cols{display:none}.hide-sm{display:none}}
+@container s (max-width:1020px){.cov-specs{display:none}}
+@container s (orientation:portrait){.rep{left:9cqw}.bloom{left:9cqw}.fin{top:46cqh}}
+
+/* ================================================================
+   2 · the studio floor — warm paper booking site
+================================================================ */
+.paper{position:relative;background:var(--paper);color:var(--ink2)}
+.paper::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.container{width:min(1120px,92vw);margin-inline:auto}
+.section{padding:clamp(90px,13vh,150px) 0;position:relative}
+
+.eyebrow{font:700 .68rem var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--crim);
+  display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.eyebrow::before{content:"";width:26px;height:1px;background:currentColor;flex:none}
+h2{font:400 clamp(2.2rem,4.6vw,3.6rem)/1.08 var(--df);margin-bottom:.5em}
+h2 em{font-style:italic;color:var(--crim)}
+.lede{max-width:580px;color:var(--mut);font-size:1.05rem}
+.section-head{margin-bottom:clamp(44px,7vh,72px)}
+
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink2);color:var(--paper);
+  border:1px solid var(--ink2);padding:1em 1.85em;border-radius:999px;
+  font:700 .72rem var(--sans);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
+  transition:background .35s,border-color .35s}
+.btn:hover{background:var(--crim);border-color:var(--crim)}
+.btn svg{transition:transform .35s}
+.btn:hover svg{transform:translateX(4px)}
+
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--sand);padding:15px 0;position:relative}
+.mtrack{display:flex;width:max-content;animation:marq 60s linear infinite}
+.mtrack:hover{animation-play-state:paused}
+.m-item{font:italic 400 1.22rem var(--df);white-space:nowrap}
+.m-item::after{content:"·";font-style:normal;padding:0 2.7rem;color:var(--ts)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* header */
+.phead{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:34px 0 12px}
+.phead .brand{font-family:var(--df);font-size:1.9rem;color:var(--ink2)}
+.phead .brand span{color:var(--crim)}
+.pnav{display:none;gap:34px}
+.pnav a{font:700 .66rem var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--mut);text-decoration:none;transition:color .3s}
+.pnav a:hover{color:var(--crim)}
+@media (min-width:900px){.pnav{display:flex}}
+
+/* arch images + Ken Burns */
+.frame{position:relative;overflow:hidden;background:var(--sand)}
+.frame img{width:100%;height:100%;object-fit:cover;
+  filter:sepia(.32) saturate(1.03) contrast(.93) brightness(1.02);
+  transform:scale(1.01);transition:transform 7s cubic-bezier(.12,.55,.25,1)}
+.frame:hover img{transform:scale(1.09) translate(1.6%,-1.2%)}
+.frame .tint{position:absolute;inset:0;background:rgba(201,113,80,.12);mix-blend-mode:multiply;pointer-events:none}
+.arch{border-radius:999px 999px 16px 16px}
+
+/* 01 · the gentleman */
+.tgrid{display:grid;gap:clamp(44px,6vw,84px);align-items:center}
+@media (min-width:940px){.tgrid{grid-template-columns:minmax(280px,400px) 1fr}}
+.tframe{aspect-ratio:3/3.8;box-shadow:0 34px 64px -34px rgba(57,54,43,.32)}
+.t-cap{margin-top:14px;font:italic 400 .82rem var(--df);color:var(--mut)}
+.type{position:relative;display:block}
+.type .ghost{visibility:hidden}
+.type .live-wrap{position:absolute;inset:0;transition:opacity .5s}
+.type.idle .live-wrap{opacity:.32}
+.caret{display:inline-block;width:2px;height:.95em;background:var(--crim);margin-left:3px;vertical-align:-.12em;opacity:0}
+.type.typing .caret{opacity:1;animation:blink 1s steps(1) infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.t-quote .type{font:400 clamp(1.3rem,2.3vw,1.65rem)/1.55 var(--df)}
+.t-attr{margin-top:20px;font:700 .68rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.hint{margin-top:12px;font:italic 400 .82rem var(--df);color:var(--crim)}
+.creds{margin-top:38px}
+.cred{display:grid;gap:10px;padding:15px 0;border-top:1px solid var(--line)}
+.cred dt{font:700 .62rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
+.cred dd{font-size:.95rem;color:var(--mut)}
+@media (min-width:640px){.cred{grid-template-columns:150px 1fr}}
+
+/* 02 · practices */
+.prac{display:grid;gap:22px;padding:clamp(38px,6vh,64px) 0;border-top:1px solid var(--line);align-items:center}
+.prac-num{font:400 italic 2.5rem var(--df);color:#cfc0a0;line-height:1;align-self:start}
+.prac-tag{font:700 .62rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#8c9575;margin-bottom:10px}
+.prac-title{font:400 1.85rem/1.15 var(--df);margin-bottom:14px}
+.prac-title span{position:relative;padding-bottom:3px}
+.prac-title span::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--crim);transition:width .55s cubic-bezier(.22,.61,.36,1)}
+.prac:hover .prac-title span::after{width:100%}
+.prac-desc{color:var(--mut);max-width:520px;margin-bottom:16px}
+.prac-meta{font:700 .62rem var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.prac-img{aspect-ratio:16/10;border-radius:14px;box-shadow:0 24px 48px -30px rgba(57,54,43,.3)}
+@media (min-width:900px){
+  .prac{grid-template-columns:88px 1fr 300px;gap:clamp(26px,4vw,56px)}
+  .prac-img{aspect-ratio:4/5}
+  .prac:nth-of-type(even) .prac-text{grid-column:3;grid-row:1}
+  .prac:nth-of-type(even) .prac-img{grid-column:2;grid-row:1;aspect-ratio:3/3.7;margin-top:-14px}
+}
+
+/* 03 · reviews */
+.reviews{columns:2;column-gap:clamp(34px,5vw,76px)}
+@media (max-width:860px){.reviews{columns:1}}
+.review{break-inside:avoid;border-top:1px solid var(--line);padding:26px 0 40px}
+.review:nth-of-type(2){padding-top:44px}
+.review.big .type{font:400 1.45rem/1.5 var(--df)}
+.review .type{font:400 1.12rem/1.62 var(--df)}
+.review figcaption{margin-top:16px;font:700 .66rem var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.review figcaption em{font:italic 400 .92rem var(--df);text-transform:none;letter-spacing:0;color:var(--crim)}
+
+/* 04 · the week */
+.sched{border-bottom:1px solid var(--line)}
+.day{margin-top:36px}
+.day:first-child{margin-top:0}
+.day-head{display:flex;justify-content:space-between;align-items:center;
+  font:700 .66rem var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+.day-tag{color:var(--sage)}
+.slot-head{width:100%;display:grid;align-items:center;gap:16px;text-align:left;background:transparent;border:0;
+  padding:18px 8px;border-top:1px solid var(--line);
+  grid-template-areas:"time main chev" "time avail chev";grid-template-columns:76px 1fr 24px;row-gap:6px;transition:background .3s}
+.slot-head:hover{background:rgba(233,222,201,.45)}
+.slot-time{grid-area:time;font:400 1.45rem/1 var(--df)}
+.slot-main{grid-area:main;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline}
+.slot-name{font:400 1.05rem var(--df)}
+.slot-note{font:italic 400 .82rem var(--df);color:var(--mut)}
+.slot-avail{grid-area:avail;display:inline-flex;align-items:center;gap:8px;font:700 .6rem var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.slot-avail::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.slot-avail.open{color:var(--sage)}
+.slot-avail.low{color:var(--crim)}
+.slot-avail.held{color:#a79d86}
+.chev{grid-area:chev;color:var(--mut);display:flex;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+.slot.open .chev{transform:rotate(180deg)}
+.slot-body{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.25,.7,.3,1)}
+.slot-inner{padding:6px 8px 30px 100px}
+.sd{margin-bottom:16px}
+.sd h4{font:700 .6rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--crim);margin-bottom:6px}
+.sd p{font-size:.93rem;color:var(--mut)}
+.slot.full .slot-head,.slot.rest{opacity:.55}
+.slot-head-static{display:grid;grid-template-columns:76px 1fr auto;align-items:center;gap:16px;padding:18px 8px;border-top:1px solid var(--line)}
+.text-btn{background:none;border:0;font:italic 400 .92rem var(--df);color:var(--crim);text-decoration:underline;text-underline-offset:4px;padding:0}
+.wl-form{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
+.wl-form input{flex:1 1 160px;background:transparent;border:0;border-bottom:1px solid var(--line);padding:8px 2px;font:400 .95rem var(--sans);color:var(--ink2);border-radius:0}
+.wl-form input:focus{outline:0;border-color:var(--crim)}
+.wl-form input::placeholder{color:#a79d86;font:italic 400 .88rem var(--df)}
+.sched-msg{padding:28px 8px;font:italic 400 1rem var(--df);color:var(--mut)}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.btn[disabled]{opacity:.6;cursor:wait}
+@media (min-width:760px){
+  .slot-head{grid-template-areas:"time main avail chev";grid-template-columns:96px 1fr auto 26px;row-gap:0}
+  .slot-inner{padding:4px 8px 30px 112px}
+}
+
+/* 05 · booking form */
+.book-form{max-width:760px}
+.frow{display:grid;gap:26px;margin-bottom:26px}
+@media (min-width:760px){.frow{grid-template-columns:1fr 1fr}}
+.field label{display:block;font:700 .62rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
+.field input,.field select{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);
+  padding:11px 2px;font:400 1rem var(--sans);color:var(--ink2);border-radius:0;transition:border-color .3s;appearance:none}
+.field textarea{width:100%;background:rgba(233,222,201,.28);border:1px solid var(--line);border-radius:12px;
+  padding:13px 15px;font:400 .98rem/1.6 var(--sans);color:var(--ink2);resize:vertical;min-height:100px;transition:border-color .3s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--crim)}
+.field input::placeholder,.field textarea::placeholder{color:#a79d86;font:italic 400 .92rem var(--df)}
+.field .msg{display:none;font:italic 400 .78rem var(--df);color:var(--crim);margin-top:7px}
+.field.err input,.field.err select,.field.err textarea{border-color:var(--crim)}
+.field.err .msg{display:block}
+.select-wrap{position:relative}
+.select-wrap select{cursor:pointer;padding-right:26px}
+.select-wrap svg{position:absolute;right:6px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--mut)}
+.check{display:flex;gap:14px;align-items:flex-start;cursor:pointer;margin:30px 0 34px}
+.check input{position:absolute;opacity:0;width:1px;height:1px}
+.check .box{width:20px;height:20px;flex:none;border:1px solid var(--mut);border-radius:5px;position:relative;top:3px;transition:.25s}
+.check input:checked+.box{background:var(--ink2);border-color:var(--ink2)}
+.check input:checked+.box::after{content:"";position:absolute;inset:4px;background:var(--paper);
+  clip-path:polygon(14% 44%,0 65%,40% 100%,100% 16%,80% 0%,39% 62%)}
+.check input:focus-visible+.box{outline:2px solid var(--crim);outline-offset:3px}
+.check-label{font:italic 400 .95rem var(--df);color:var(--mut)}
+.check .msg{display:none;font:italic 400 .78rem var(--df);color:var(--crim);margin-top:7px}
+.check.err .box{border-color:var(--crim)}
+.check.err .msg{display:block}
+.submit-row{display:flex;flex-wrap:wrap;align-items:center;gap:20px}
+.submit-row .fine{font:italic 400 .85rem var(--df);color:var(--mut)}
+.legal{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);
+  font:italic 400 .82rem/1.7 var(--df);color:var(--mut);max-width:560px}
+
+/* footer */
+.footer{background:var(--sand);border-top:1px solid var(--line);padding:74px 0 34px;position:relative}
+.footer-grid{display:grid;gap:40px}
+@media (min-width:760px){.footer-grid{grid-template-columns:1fr auto}}
+.footer .brand{font-family:var(--df);font-size:2.4rem;color:var(--ink2)}
+.footer .brand span{color:var(--crim)}
+.footer-tag{margin-top:14px;font:italic 400 .92rem var(--df);color:var(--mut);max-width:340px}
+.footer-links{display:flex;flex-direction:column;gap:14px}
+.footer-links a{font:700 .64rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mut);text-decoration:none;transition:color .3s}
+.footer-links a:hover{color:var(--crim)}
+.footer-bottom{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between;
+  font:700 .58rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+
+/* fixed UI */
+.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,14px);background:var(--ink2);color:var(--paper);
+  padding:13px 24px;border-radius:999px;font:700 .62rem var(--sans);letter-spacing:.16em;text-transform:uppercase;
+  opacity:0;visibility:hidden;transition:.4s;z-index:1200;text-align:center;max-width:92vw}
+.toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.chime{position:fixed;left:22px;bottom:22px;z-index:1100;display:inline-flex;align-items:center;gap:9px;
+  background:rgba(246,241,231,.9);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;
+  padding:9px 17px;font:700 .6rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mut);transition:.3s}
+.chime:hover{border-color:var(--crim);color:var(--ink2)}
+.chime.armed{color:var(--crim);border-color:var(--ts)}
+.chime.armed svg{animation:bell 1.6s ease-in-out infinite;transform-origin:top center}
+@keyframes bell{0%,100%{transform:rotate(0)}50%{transform:rotate(14deg)}}
+.modal{position:fixed;inset:0;z-index:1300;display:grid;place-items:center;padding:20px;visibility:hidden;opacity:0;transition:.4s}
+.modal.show{visibility:visible;opacity:1}
+.modal-back{position:absolute;inset:0;background:rgba(46,44,35,.48);backdrop-filter:blur(6px)}
+.modal-panel{position:relative;background:var(--paper);width:min(480px,100%);border:1px solid var(--line);
+  border-radius:22px;padding:clamp(28px,6vw,44px);text-align:center;transform:translateY(16px);
+  transition:transform .45s cubic-bezier(.2,.8,.3,1);max-height:90vh;overflow:auto}
+.modal.show .modal-panel{transform:none}
+.m-arch{width:118px;aspect-ratio:3/3.6;margin:0 auto 22px;border-radius:999px 999px 12px 12px;overflow:hidden;
+  animation:breathe 8s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+.m-eyebrow{font:700 .62rem var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--crim)}
+.m-title{font:400 2rem var(--df);margin:8px 0 6px}
+.m-ref{font:400 .82rem var(--sans);color:var(--mut);margin-bottom:18px}
+.m-ref b{color:var(--crim);letter-spacing:.08em}
+.m-sum{margin-bottom:18px;text-align:left}
+.m-row{display:flex;justify-content:space-between;gap:20px;padding:10px 0;border-top:1px solid var(--line)}
+.m-row dt{font:700 .6rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mut);padding-top:3px}
+.m-row dd{font:400 .95rem var(--df);text-align:right}
+.m-note{font:italic 400 .88rem/1.7 var(--df);color:var(--mut);margin-bottom:24px}
+
+/* paper reveals + reduced motion */
+[data-rv]{opacity:0;transform:translateY(26px);
+  transition:opacity .6s ease,transform .6s cubic-bezier(.22,.61,.36,1);transition-delay:var(--d,0ms)}
+[data-rv].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  [data-rv]{opacity:1;transform:none}
+  .mtrack{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+     THE SPECIMEN — the flower is the product reveal
+================================================================ -->
+<section id="specimen" aria-label="Presence, a gentleman, catalogued">
+  <div class="stage" id="stage">
+    <div class="edge" aria-hidden="true"></div>
+    <div class="glow" id="glow" aria-hidden="true"></div>
+    <canvas id="cv" aria-hidden="true"></canvas>
+
+    <!-- 0 · cover -->
+    <div class="fr">
+      <div class="cov-top">
+        <div class="df cov-name" data-sc="0" data-fx="clip" data-d="0">Presence<br>Typeface</div>
+        <p class="df cov-desc" data-sc="0" data-fx="rise" data-d="0.2">Presence is a premium companion face featuring organic charm and impeccable manners. Perfect for weddings, wardrobes and quiet emergencies, it adds sophistication, a second opinion, and someone to hold the bags — wherever you deploy it.</p>
+        <ul class="df cov-specs" data-sc="0" data-fx="rise" data-d="0.35">
+          <li>Contains 1 gentleman, hand-finished</li>
+          <li>60-minute blocks · ₹10,000 each</li>
+          <li>Ladies-only edition</li>
+          <li>3 services in 1 human · no dependencies</li>
+          <li>Multilingual: flattery, small talk, silence</li>
+        </ul>
+        <div class="df cov-side" data-sc="0" data-fx="clip" data-d="0.5">Ladies<br>Only<br>Edition</div>
+      </div>
+      <div class="word df" id="word">
+        <span class="df svc-tag" data-sc="0" data-fx="rise" data-d="0.6">Service</span>
+        <h2 id="wordH" aria-label="Presence"></h2>
+      </div>
+      <div class="cov-bot">
+        <div class="cov-cred" data-sc="0" data-fx="rise" data-d="0.3">
+          <span class="yr">2025</span>
+          <span class="mf">Manufactured by<br>The Sole Gentleman</span>
+        </div>
+        <div class="cov-cols" data-sc="0" data-fx="rise" data-d="0.5">
+          <span>Presence<br><b>Typeface</b></span>
+          <span>Ladies-only<br><b>Edition</b></span>
+          <span>Designed by<br><b>The Sole Gentleman</b></span>
+          <span>2025<br><b>Specimen</b></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1 · crown -->
+    <div class="fr">
+      <div class="df" data-sc="1" data-fx="fade" data-d="0.5" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(10px,1.1cqw,14px)">Presence</div>
+      <p class="cap" data-sc="1" data-fx="rise" data-d="0.7"><b>02</b> — the crown, from above</p>
+    </div>
+
+    <!-- 2 · the full character set -->
+    <div class="fr df">
+      <div class="spec-grid">
+        <div class="spec-col" id="specL"></div>
+        <div class="spec-mid">
+          <div class="nm" data-sc="2" data-fx="rise" data-d="0.35">Presence<br><small>Typeface</small></div>
+          <div class="ins" data-sc="2" data-fx="rise" data-d="0.45">
+            <div id="ig">&amp;?</div>
+            <div id="icp">HOVER A GLYPH</div>
+            <div id="nums">0&nbsp;123&nbsp;4567&nbsp;888999</div>
+          </div>
+        </div>
+        <div class="spec-col right" id="specR"></div>
+      </div>
+      <p class="cap" data-sc="2" data-fx="rise" data-d="0.55"><b>03</b> — the full character set</p>
+    </div>
+
+    <!-- 3 · the repertoire -->
+    <div class="fr">
+      <div class="rep df">
+        <p class="rep-lead" data-sc="3" data-fx="rise" data-d="0">One hour can hold —</p>
+        <p data-sc="3" data-fx="clip" data-d="0.12" style="font-size:min(4.6cqw,6.2cqh)">The Plus-One</p>
+        <p data-sc="3" data-fx="clip" data-d="0.2" style="font-size:min(4.6cqw,6.2cqh)">The Carrier</p>
+        <p data-sc="3" data-fx="clip" data-d="0.28" style="font-size:min(4.6cqw,6.2cqh)">Deep Yin Listening</p>
+        <p data-sc="3" data-fx="clip" data-d="0.36" style="font-size:min(4.6cqw,6.2cqh)">Vent Work</p>
+        <p data-sc="3" data-fx="clip" data-d="0.44" style="font-size:min(4.6cqw,6.2cqh)">The Silence</p>
+      </div>
+      <p class="cap" data-sc="3" data-fx="rise" data-d="0.6"><b>04</b> — the repertoire, in full bloom</p>
+    </div>
+
+    <!-- 4 · the terms -->
+    <div class="fr">
+      <div class="bloom df">
+        <p class="bl" data-sc="4" data-fx="rise" data-d="0">One hour.</p>
+        <p class="bl small" data-sc="4" data-fx="rise" data-d="0.15">absolutely</p>
+        <p class="bl" data-sc="4" data-fx="rise" data-d="0.3">Anything.</p>
+        <p class="bl small" data-sc="4" data-fx="rise" data-d="0.45">₹10,000 · no hidden fees</p>
+      </div>
+      <p class="cap" data-sc="4" data-fx="rise" data-d="0.55"><b>05</b> — the terms, in bloom</p>
+    </div>
+
+    <!-- 5 · the finale -->
+    <div class="fr">
+      <div class="fin">
+        <div class="fin-word df" id="ligaWord" data-sc="5" data-fx="fade" data-d="0">Flawless
+          <svg class="fin-ring" data-sc="5" data-fx="draw" data-d="0.3" viewBox="0 0 340 130" aria-hidden="true">
+            <path d="M170 12 C 264 12 322 36 322 65 C 322 94 264 118 170 118 C 76 118 18 94 18 65 C 18 36 76 12 170 12"/>
+          </svg>
+          <button class="liga-btn on" id="ligaBtn" type="button" aria-pressed="true">liga</button>
+        </div>
+        <p class="fin-multi" data-sc="5" data-fx="rise" data-d="0.4">Lā<i>·</i>dïes <i>·</i> önly <i>·</i> zéro <i>·</i> jūdgment</p>
+      </div>
+      <div class="fin-links" data-sc="5" data-fx="rise" data-d="0.6">
+        <a href="#book">Book your hour</a>
+        <a href="#week">The week, as it stands</a>
+      </div>
+      <p class="cap" data-sc="5" data-fx="rise" data-d="0.7"><b>06</b> — flawless, they said</p>
+    </div>
+
+    <nav class="snav" id="snav" aria-label="Frames"></nav>
+  </div>
+</section>
+
+<!-- ================================================================
+     THE STUDIO FLOOR — warm paper, real booking
+================================================================ -->
+<main class="paper">
+  <div class="marquee" aria-hidden="true">
+    <div class="mtrack" id="mtrack">
+      <span class="m-item">plus-one</span><span class="m-item">bag custody</span>
+      <span class="m-item">honest opinions</span><span class="m-item">wedding armour</span>
+      <span class="m-item">nap guarding</span><span class="m-item">vent work</span>
+      <span class="m-item">queue standing</span><span class="m-item">flat-pack rescue</span>
+      <span class="m-item">loving silence</span><span class="m-item">chai runs</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <header class="phead">
+      <p class="brand">Presence<span>.</span></p>
+      <nav class="pnav">
+        <a href="#gentleman">the gentleman</a>
+        <a href="#practices">practices</a>
+        <a href="#word">word of mouth</a>
+        <a href="#week">this week</a>
+        <a href="/apply">join the team</a>
+      </nav>
+      <a class="btn" href="#book">book an hour</a>
+    </header>
+  </div>
+
+  <!-- 01 · the gentleman -->
+  <section class="section" id="gentleman" style="background:var(--paper2)">
+    <div class="container tgrid">
+      <div data-rv>
+        <div class="tframe arch frame">
+          <img src="https://picsum.photos/seed/presence-gentleman/600/760.jpg" alt="The gentleman, portrait">
+          <span class="tint"></span>
+        </div>
+        <p class="t-cap">the gentleman, on a Tuesday</p>
+      </div>
+      <div data-rv style="--d:120ms">
+        <p class="eyebrow">01 · the teacher</p>
+        <h2>Why I do <em>this.</em></h2>
+        <blockquote class="t-quote type" data-text="Because everyone deserves one hour in which somebody's entire job is to be unreasonably, wholeheartedly on their side.">
+          <span class="ghost" aria-hidden="true"></span>
+          <span class="live-wrap" aria-hidden="true"><span class="live"></span><span class="caret"></span></span>
+        </blockquote>
+        <p class="t-attr">— the gentleman · founder &amp; sole employee</p>
+        <p class="hint">hover — he'll tell you himself</p>
+        <dl class="creds">
+          <div class="cred"><dt>certified in</dt><dd>listening · parallel parking · saying "you were right" and meaning it</dd></div>
+          <div class="cred"><dt>known for</dt><dd>being on time · knowing which exit · remembering your coffee order</dd></div>
+          <div class="cred"><dt>hobbies</dt><dd>carrying things · standing in lines · being the calm one</dd></div>
+          <div class="cred"><dt>weakness</dt><dd>accepts chai as tip (rare, entirely at his discretion)</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · the practices -->
+  <section class="section" id="practices">
+    <div class="container">
+      <div class="section-head" data-rv>
+        <p class="eyebrow">02 · the practices</p>
+        <h2>What one hour <em>can hold.</em></h2>
+        <p class="lede">Five practices, sixty minutes each, entirely yours. Or choose <em>surprise me</em> — a curated mystery, historically well-reviewed.</p>
+      </div>
+
+      <article class="prac" data-rv>
+        <span class="prac-num">01</span>
+        <div class="prac-text">
+          <p class="prac-tag">formerly: vinyasa</p>
+          <h3 class="prac-title"><span>The Plus-One</span></h3>
+          <p class="prac-desc">Weddings, gallery openings, your cousin's engagement where every aunty asks questions. I small-talk fluently, compliment the biryani like it earned a star, and remember which cousin is which.</p>
+          <p class="prac-meta">60 min · all levels · dance floor optional</p>
+        </div>
+        <div class="prac-img frame">
+          <img src="https://picsum.photos/seed/presence-wedding/480/600.jpg" alt="The Plus-One, in practice">
+          <span class="tint"></span>
+        </div>
+      </article>
+
+      <article class="prac" data-rv>
+        <span class="prac-num">02</span>
+        <div class="prac-text">
+          <p class="prac-tag">shopping flow</p>
+          <h3 class="prac-title"><span>The Carrier</span></h3>
+          <p class="prac-desc">Four stores, one opinion you can trust, zero sighs. I hold everything, tell you the third outfit is the one, and never once check my phone. Arms of a saint.</p>
+          <p class="prac-meta">60 min · intermediate (cardio) · cardio is the walking</p>
+        </div>
+        <div class="prac-img frame">
+          <img src="https://picsum.photos/seed/presence-market/480/600.jpg" alt="The Carrier, in practice">
+          <span class="tint"></span>
+        </div>
+      </article>
+
+      <article class="prac" data-rv>
+        <span class="prac-num">03</span>
+        <div class="prac-text">
+          <p class="prac-tag">restorative</p>
+          <h3 class="prac-title"><span>Deep Yin Listening</span></h3>
+          <p class="prac-desc">Tea. Sofa. The whole story about your ex, at natural speed. My phone goes face-down and stays there. Silences are held, not filled. Crying permitted at no extra charge.</p>
+          <p class="prac-meta">60 min · all levels · tissues provided</p>
+        </div>
+        <div class="prac-img frame">
+          <img src="https://picsum.photos/seed/presence-tea/480/600.jpg" alt="Deep Yin Listening, in practice">
+          <span class="tint"></span>
+        </div>
+      </article>
+
+      <article class="prac" data-rv>
+        <span class="prac-num">04</span>
+        <div class="prac-text">
+          <p class="prac-tag">breathwork, mostly</p>
+          <h3 class="prac-title"><span>Vent Work</span></h3>
+          <p class="prac-desc">Guided complaining with box breathing. We air the group-chat incident, your boss, and the parking situation — then exhale all of it into the ether, where it belongs.</p>
+          <p class="prac-meta">60 min · advanced patience · no topic too petty</p>
+        </div>
+        <div class="prac-img frame">
+          <img src="https://picsum.photos/seed/presence-wind/480/600.jpg" alt="Vent Work, in practice">
+          <span class="tint"></span>
+        </div>
+      </article>
+
+      <article class="prac" data-rv>
+        <span class="prac-num">05</span>
+        <div class="prac-text">
+          <p class="prac-tag">the nap guardian</p>
+          <h3 class="prac-title"><span>The Silence</span></h3>
+          <p class="prac-desc">You work. I sit. We say nothing. It's beautiful. If you drift off, I guard the nap like it's the crown jewels.</p>
+          <p class="prac-meta">60 min · beginner friendly · guardian certified</p>
+        </div>
+        <div class="prac-img frame">
+          <img src="https://picsum.photos/seed/presence-still/480/600.jpg" alt="The Silence, in practice">
+          <span class="tint"></span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 03 · word of mouth -->
+  <section class="section" id="word" style="background:var(--paper2)">
+    <div class="container">
+      <div class="section-head" data-rv>
+        <p class="eyebrow">03 · word of mouth</p>
+        <h2>What the ladies <em>say.</em></h2>
+        <p class="lede">(hover a quote — it arrives letter by letter, like a proper note)</p>
+      </div>
+      <div class="reviews">
+        <figure class="review big" data-rv>
+          <blockquote class="type" data-text="He told me the dress wasn't it. I returned the dress. He was right. I have never recovered from being this understood.">
+            <span class="ghost" aria-hidden="true"></span>
+            <span class="live-wrap" aria-hidden="true"><span class="live"></span><span class="caret"></span></span>
+          </blockquote>
+          <figcaption>— Ritika, 29 · <em>The Carrier</em></figcaption>
+        </figure>
+        <figure class="review" data-rv style="--d:120ms">
+          <blockquote class="type" data-text="Booked him to stand in line at the passport office. He stood. For four hours. Worth every rupee.">
+            <span class="ghost" aria-hidden="true"></span>
+            <span class="live-wrap" aria-hidden="true"><span class="live"></span><span class="caret"></span></span>
+          </blockquote>
+          <figcaption>— Meher, 31 · <em>off-menu</em></figcaption>
+        </figure>
+        <figure class="review" data-rv style="--d:80ms">
+          <blockquote class="type" data-text="He pretended to be my boyfriend at a family dinner. My grandmother loved him. My real boyfriend never found out. Five stars, would commit again.">
+            <span class="ghost" aria-hidden="true"></span>
+            <span class="live-wrap" aria-hidden="true"><span class="live"></span><span class="caret"></span></span>
+          </blockquote>
+          <figcaption>— Sana, 27 · <em>The Plus-One</em></figcaption>
+        </figure>
+        <figure class="review" data-rv style="--d:160ms">
+          <blockquote class="type" data-text="He assembled my wardrobe and only cried once. Very healing. For both of us, I think.">
+            <span class="ghost" aria-hidden="true"></span>
+            <span class="live-wrap" aria-hidden="true"><span class="live"></span><span class="caret"></span></span>
+          </blockquote>
+          <figcaption>— Ananya, 24 · <em>flat-pack rescue</em></figcaption>
+        </figure>
+        <figure class="review" data-rv style="--d:100ms">
+          <blockquote class="type" data-text="He sat in complete silence while I finished my thesis. I finished my thesis. I don't fully understand what happened, but I'm grateful.">
+            <span class="ghost" aria-hidden="true"></span>
+            <span class="live-wrap" aria-hidden="true"><span class="live"></span><span class="caret"></span></span>
+          </blockquote>
+          <figcaption>— Devika, 26 · <em>The Silence</em></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · this week -->
+  <section class="section" id="week">
+    <div class="container">
+      <div class="section-head" data-rv>
+        <p class="eyebrow">04 · this week</p>
+        <h2>The week, as <em>it stands.</em></h2>
+        <p class="lede">Capacity is strictly one (1). It has always been one. This calendar is live — tap an hour — the room, the rules and the fine print unfold, gently, like a mat.</p>
+      </div>
+      <div class="sched" id="sched"></div>
+    </div>
+  </section>
+
+  <!-- 05 · the reservation -->
+  <section class="section" id="book" style="background:var(--paper2)">
+    <div class="container">
+      <div class="section-head" data-rv>
+        <p class="eyebrow">05 · the reservation</p>
+        <h2>Book your <em>hour.</em></h2>
+        <p class="lede">No payment now — a hold is placed, and I confirm on WhatsApp within one business day.
+        I nap 2–4 pm; this is non-negotiable and, frankly, part of the service.
+        P.S. the first ten-minute rant is free — mention it below.</p>
+      </div>
+
+      <form class="book-form" id="bookForm" novalidate data-rv>
+        <!-- spam trap: hidden from people, bots fill it in -->
+        <div class="hp" aria-hidden="true"><label for="f-website">website</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <div class="frow">
+          <div class="field">
+            <label for="f-name">your good name</label>
+            <input id="f-name" type="text" placeholder="e.g. Priya" autocomplete="name">
+            <span class="msg">the gentleman needs a name to whisper politely</span>
+          </div>
+          <div class="field">
+            <label for="f-contact">whatsapp / phone</label>
+            <input id="f-contact" type="tel" placeholder="+91 ·····" autocomplete="tel">
+            <span class="msg">how else will I confirm?</span>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="field">
+            <label for="f-date">the date</label>
+            <input id="f-date" type="date">
+            <span class="msg">pick any day outside the nap window</span>
+          </div>
+          <div class="field">
+            <label for="f-time">the hour</label>
+            <div class="select-wrap">
+              <select id="f-time">
+                <option value="">choose</option>
+                <option value="07:30">07:30 · morning flow</option>
+                <option value="10:00">10:00 · brunch escort</option>
+                <option value="16:00">16:00 · the golden hour</option>
+                <option value="19:00">19:00 · evening yin</option>
+                <option value="flexible">flexible · you decide, I adapt</option>
+              </select>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <span class="msg">an hour must be named before it can be held</span>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="field">
+            <label for="f-practice">the practice</label>
+            <div class="select-wrap">
+              <select id="f-practice">
+                <option value="">choose</option>
+                <option>The Plus-One</option>
+                <option>The Carrier</option>
+                <option>Deep Yin Listening</option>
+                <option>Vent Work</option>
+                <option>The Silence</option>
+                <option>Flat-Pack Rescue</option>
+                <option>Surprise me — a curated mystery</option>
+              </select>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <span class="msg">every hour needs a shape</span>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:8px">
+          <label for="f-req">what shall we do with this hour?</label>
+          <textarea id="f-req" rows="3" placeholder="the more specific, the better — 'tell my mother the dress suits her' is a classic."></textarea>
+        </div>
+
+        <label class="check">
+          <input type="checkbox" id="f-lady">
+          <span class="box" aria-hidden="true"></span>
+          <span class="check-label">I confirm I'm a woman, booking for myself — and that I am, proudly, worth ₹10,000 an hour.</span>
+          <span class="msg">the ladies-only clause is load-bearing</span>
+        </label>
+
+        <div class="submit-row">
+          <button class="btn" type="submit" id="submitBtn">place the hold — ₹10,000 / hour
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </button>
+          <span class="fine">no payment now · confirmation on WhatsApp · bring gossip (optional)</span>
+        </div>
+      </form>
+
+      <p class="legal">Presence is a companionship service: anything legal, wholesome, and within city limits.
+      The hour is yours; the boundaries are mine — and they're excellent.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="brand">Presence<span>.</span></p>
+          <p class="footer-tag">Ladies only. City limits. Not therapy — but spiritually adjacent.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#gentleman">the gentleman</a>
+          <a href="#practices">the practices</a>
+          <a href="#week">this week</a>
+          <a href="#book">book an hour</a>
+          <a href="/apply">join the team</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Presence — all rights, and all bags, reserved</span>
+        <span>made slowly, like everything good</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<!-- fixed UI -->
+<button class="chime" id="chime" aria-pressed="false" title="Opt in for a single soft chime on your first scroll">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+  <span id="chimeLabel">chime</span>
+</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-back" id="modalBack"></div>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <div class="m-arch frame">
+      <img src="https://picsum.photos/seed/presence-calm/240/300.jpg" alt="A calm corner of the studio">
+      <span class="tint"></span>
+    </div>
+    <p class="m-eyebrow">hold placed</p>
+    <h3 class="m-title" id="mTitle">Hour held.</h3>
+    <p class="m-ref">reference <b id="mRef"></b></p>
+    <dl class="m-sum" id="mSum"></dl>
+    <p class="m-note">A gentleman will now look at a calendar and feel extremely important.
+    Confirmation arrives on WhatsApp within one business day — unless it's 2–4 pm,
+    in which case, shortly after.</p>
+    <button class="btn" id="mClose" type="button">return to the calm</button>
+  </div>
+</div>
+
+<script>
+/* ================================================================
+   PART I — the Lycoris engine, ported to plain JavaScript
+================================================================ */
+/* ---- vec math ---- */
+const add=(a,b)=>[a[0]+b[0],a[1]+b[1],a[2]+b[2]];
+const sub=(a,b)=>[a[0]-b[0],a[1]-b[1],a[2]-b[2]];
+const mul=(a,s)=>[a[0]*s,a[1]*s,a[2]*s];
+const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+const norm=a=>{const l=Math.hypot(a[0],a[1],a[2])||1;return[a[0]/l,a[1]/l,a[2]/l]};
+const rng=seed=>{let s=seed>>>0;return()=>{s=(s+0x6d2b79f5)>>>0;let t=s;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296}};
+const HEART=[0,0.25,0];
+
+/* ---- the spider lily as centrelines ---- */
+function buildCurves(florets,seed){
+  const F=Math.max(3,Math.min(8,Math.round(florets)));
+  const r=rng(seed);const curves=[];const up=[0,1,0];
+  for(let i=0;i<F;i++){
+    const phi=(i/F)*Math.PI*2+(r()-.5)*.3;
+    const tilt=1.05+(r()-.5)*.25;
+    const radial=[Math.cos(phi),0,Math.sin(phi)];
+    const u=norm([Math.sin(tilt)*radial[0],Math.cos(tilt),Math.sin(tilt)*radial[2]]);
+    const base=[radial[0]*.13,.07,radial[2]*.13];
+    const e1=norm(cross(u,Math.abs(u[1])>.9?[1,0,0]:up));
+    const e2=cross(u,e1);
+    const stagger=i/F;
+    const common={base,stagger};
+    // pedicel
+    const ped=[];
+    for(let k=0;k<=10;k++){const s=k/10;ped.push([radial[0]*.13*s,.07*Math.sin(s*Math.PI/2),radial[2]*.13*s]);}
+    curves.push({pts:ped,kind:2,w:.022,t:0,lat:e1,twist:0,bulb:false,phase:0,...common});
+    for(let j=0;j<6;j++){
+      const th=(j/6)*Math.PI*2+i*.7+(r()-.5)*.35;
+      const d=add(mul(e1,Math.cos(th)),mul(e2,Math.sin(th)));
+      const lat=norm(cross(d,u));
+      const phase=r()*Math.PI*2;
+      // tepal — strap that sweeps out and recurves back
+      const L=1.35+r()*.3,b0=.45+r()*.2,b1=2.75+r()*.45;
+      const pts=[base];let p=base;const steps=48;
+      for(let k=1;k<=steps;k++){
+        const s=k/steps,b=b0+(b1-b0)*Math.pow(s,1.2);
+        p=add(p,mul(add(mul(d,Math.sin(b)),mul(u,Math.cos(b))),L/steps));
+        pts.push(p);
+      }
+      for(let k=1;k<=steps;k++){
+        const s=k/steps;
+        pts[k]=add(pts[k],mul(lat,Math.sin(s*Math.PI*2.4+phase)*.05*s));
+      }
+      curves.push({pts,kind:0,w:.075+r()*.02,t:.02,lat,twist:.2+r()*.35,bulb:false,phase,...common});
+      // stamen — up, out and down like a fountain jet
+      const d2=add(mul(e1,Math.cos(th+.52)),mul(e2,Math.sin(th+.52)));
+      const dh=norm([d2[0],0,d2[2]]);
+      const start=norm(add(u,mul(d2,.25)));
+      const end=norm(add(add(mul(radial,.85),mul(dh,.5)),[0,-.95,0]));
+      const Ls=1.75+r()*.45;const sp=[base];p=base;
+      for(let k=1;k<=44;k++){
+        const s=k/44,m=Math.pow(s,1.15);
+        p=add(p,mul(norm(add(mul(start,1-m),mul(end,m))),Ls/44));
+        sp.push(p);
+      }
+      curves.push({pts:sp,kind:1,w:.012,t:0,lat,twist:0,bulb:true,phase:phase+1.3,...common});
+    }
+    // style — one per floret, longer and plainer
+    {
+      const end=norm(add(mul(radial,.9),[0,-.35,0]));
+      const sp=[base];let p=base;const Ls=2.2+r()*.3;
+      for(let k=1;k<=44;k++){
+        const s=k/44;
+        p=add(p,mul(norm(add(mul(u,1-s),mul(end,s))),Ls/44));
+        sp.push(p);
+      }
+      curves.push({pts:sp,kind:1,w:.009,t:0,lat:e1,twist:0,bulb:false,phase:r()*6,...common});
+    }
+  }
+  // the scape — tall, leafless, faintly bowed
+  const stem=[];
+  for(let k=0;k<=40;k++){
+    const s=k/40,y=.04-s*4.6;
+    stem.push([Math.sin(s*2.2)*.07,y,Math.sin(s*1.3)*.03]);
+  }
+  curves.push({pts:stem,kind:2,w:.05,t:0,lat:[1,0,0],twist:0,bulb:false,phase:0,stagger:0,base:[0,0,0]});
+  let radius=0;
+  for(const c of curves){
+    if(c.kind===2)continue;
+    for(const q of c.pts)radius=Math.max(radius,Math.hypot(q[0]-HEART[0],q[1]-HEART[1],q[2]-HEART[2]));
+  }
+  return{curves,radius};
+}
+
+/* ---- mesh: pos3, nrm3, aux4 (s, phase, kind, stagger), base3 ---- */
+const STRIDE=13;
+function buildMesh(curves){
+  const v=[],idx=[];let count=0;
+  const push=(p,n,s,c)=>{v.push(p[0],p[1],p[2],n[0],n[1],n[2],s,c.phase,c.kind,c.stagger,c.base[0],c.base[1],c.base[2]);return count++;};
+  const tangent=(pts,i)=>norm(sub(pts[Math.min(i+1,pts.length-1)],pts[Math.max(i-1,0)]));
+  for(const c of curves){
+    const n=c.pts.length;
+    if(c.kind===0){
+      // flat strap with real thickness, hard edges — chrome picks up rim light
+      const rings=[];let first,last,T0=[0,1,0],T1=[0,1,0];
+      for(let i=0;i<n;i++){
+        const s=i/(n-1),T=tangent(c.pts,i);
+        let N=norm(cross(T,c.lat)),W=cross(N,T);
+        const a=c.twist*Math.sin(Math.PI*s),ca=Math.cos(a),sa=Math.sin(a);
+        const W2=add(mul(W,ca),mul(N,sa));
+        N=sub(mul(N,ca),mul(W,sa));W=W2;
+        const hw=c.w*(.42+.58*Math.pow(Math.sin(Math.PI*Math.min(1,.12+s*.9)),.6))*(1+.1*Math.sin(s*34+c.phase));
+        const p=c.pts[i];
+        const k0=add(add(p,mul(W,hw)),mul(N,c.t));
+        const k1=add(sub(p,mul(W,hw)),mul(N,c.t));
+        const k2=sub(sub(p,mul(W,hw)),mul(N,c.t));
+        const k3=sub(add(p,mul(W,hw)),mul(N,c.t));
+        const mW=mul(W,-1),mN=mul(N,-1);
+        rings.push([push(k0,N,s,c),push(k1,N,s,c),push(k1,mW,s,c),push(k2,mW,s,c),push(k2,mN,s,c),push(k3,mN,s,c),push(k3,W,s,c),push(k0,W,s,c)]);
+        if(i===0){first=[k0,k1,k2,k3];T0=T;}
+        if(i===n-1){last=[k0,k1,k2,k3];T1=T;}
+      }
+      for(let i=0;i<n-1;i++){
+        const a=rings[i],b=rings[i+1];
+        for(let f=0;f<4;f++){const x=f*2;idx.push(a[x],a[x+1],b[x],a[x+1],b[x+1],b[x]);}
+      }
+      const cap=(q,nrm,s)=>{const o=q.map(p=>push(p,nrm,s,c));idx.push(o[0],o[1],o[2],o[0],o[2],o[3]);};
+      cap(first,mul(T0,-1),0);cap(last,T1,1);
+    }else{
+      // round tube on a parallel-transport frame — never corkscrews
+      const seg=c.kind===2?10:6;
+      let N=norm(cross(tangent(c.pts,0),c.kind===2?[0,0,1]:c.lat));
+      const rings=[];
+      for(let i=0;i<n;i++){
+        const s=i/(n-1),T=tangent(c.pts,i);
+        N=norm(sub(N,mul(T,dot(N,T))));
+        const B=cross(T,N);
+        let rad=c.w*(c.kind===1?1-.35*s:1);
+        if(c.bulb&&s>.9)rad=c.w*(.65+2.1*Math.sin(((s-.9)/.1)*Math.PI*.92));
+        if(c.kind===1&&i===n-1)rad*=.3;
+        rings.push(count);
+        for(let k=0;k<=seg;k++){
+          const a=(k/seg)*Math.PI*2;
+          const nr=add(mul(N,Math.cos(a)),mul(B,Math.sin(a)));
+          push(add(c.pts[i],mul(nr,rad)),nr,s,c);
+        }
+      }
+      for(let i=0;i<n-1;i++){
+        for(let k=0;k<seg;k++){
+          const a=rings[i]+k,b=rings[i+1]+k;
+          idx.push(a,a+1,b,a+1,b+1,b);
+        }
+      }
+    }
+  }
+  return{data:new Float32Array(v),index:new Uint16Array(idx),vertices:count};
+}
+
+/* ---- scroll math ---- */
+const clamp01=x=>x<=0?0:x>1?1:x;
+const smoothstep=(a,b,x)=>{const t=clamp01((x-a)/(b-a));return t*t*(3-2*t)};
+const easeInOut=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const progressFrom=(top,height,viewport)=>{const tr=height-viewport;return tr<=0?0:clamp01(-top/tr)};
+const sceneCoord=(p,n,hold)=>{
+  if(n<=1)return 0;
+  const t=clamp01(p)*(n-1),i=Math.min(Math.floor(t),n-2),h=hold/2;
+  return i+easeInOut(clamp01((t-i-h)/(1-2*h)));
+};
+const reveal=(coord,scene,delay)=>{
+  const d=coord-scene,lag=d<0?delay:1-delay;
+  return clamp01((.6-Math.abs(d)-lag*.2)/.25);
+};
+
+/* ---- camera keys ---- */
+const KEYS=[
+  {spin:.2,el:9,size:.86,ox:0,oy:.3,stem:1},
+  {spin:1.4,el:88,size:.58,ox:0,oy:0,stem:0},
+  {spin:2.3,el:12,size:.27,ox:0,oy:.4,stem:.3},
+  {spin:3.1,el:-30,size:.86,ox:0,oy:-.34,stem:.06},
+  {spin:4.1,el:16,size:1.02,ox:.66,oy:.2,stem:1},
+  {spin:5,el:-74,size:.86,ox:0,oy:1.02,stem:.04},
+];
+const KEYS_TALL=[{size:.9,oy:.36},{size:.56},{size:.34,oy:.44},{size:.95,oy:-.2},{size:.86,ox:.5,oy:.46},{size:.96,oy:1}];
+const SCENES=6,HOLD=.34;
+const keyAt=(coord,tall)=>{
+  const i=Math.max(0,Math.min(SCENES-1,Math.floor(coord)));
+  const j=Math.min(SCENES-1,i+1),f=coord-i;
+  const a={...KEYS[i],...(tall?KEYS_TALL[i]:{})};
+  const b={...KEYS[j],...(tall?KEYS_TALL[j]:{})};
+  const l=(x,y)=>x+(y-x)*f;
+  return{spin:l(a.spin,b.spin),el:l(a.el,b.el),size:l(a.size,b.size),ox:l(a.ox,b.ox),oy:l(a.oy,b.oy),stem:l(a.stem,b.stem)};
+};
+
+/* ---- matrices (column-major) ---- */
+const perspective=(fovy,aspect,near,far)=>{
+  const f=1/Math.tan(fovy/2),m=new Float32Array(16);
+  m[0]=f/aspect;m[5]=f;m[10]=(far+near)/(near-far);m[11]=-1;m[14]=(2*far*near)/(near-far);
+  return m;
+};
+const lookAt=(eye,at)=>{
+  const z=norm(sub(eye,at)),x=norm(cross([0,1,0],z)),y=cross(z,x);
+  const m=new Float32Array(16);
+  m[0]=x[0];m[4]=x[1];m[8]=x[2];m[1]=y[0];m[5]=y[1];m[9]=y[2];m[2]=z[0];m[6]=z[1];m[10]=z[2];
+  m[12]=-dot(x,eye);m[13]=-dot(y,eye);m[14]=-dot(z,eye);m[15]=1;
+  return m;
+};
+const multiply=(a,b)=>{
+  const o=new Float32Array(16);
+  for(let c=0;c<4;c++)for(let r=0;r<4;r++)
+    o[c*4+r]=a[r]*b[c*4]+a[4+r]*b[c*4+1]+a[8+r]*b[c*4+2]+a[12+r]*b[c*4+3];
+  return o;
+};
+const rotY=t=>{const c=Math.cos(t),s=Math.sin(t);return new Float32Array([c,0,-s,0,0,1,0,0,s,0,c,0,0,0,0,1])};
+const rotX=t=>{const c=Math.cos(t),s=Math.sin(t);return new Float32Array([1,0,0,0,0,c,s,0,0,-s,c,0,0,0,0,1])};
+const hexToLinear=hex=>{
+  let h=hex.replace("#","").trim();
+  if(h.length===3)h=h.split("").map(c=>c+c).join("");
+  const n=parseInt(h.slice(0,6),16);
+  if(Number.isNaN(n))return[.8,.02,.03];
+  const ch=v=>Math.pow(v/255,2.2);
+  return[ch((n>>16)&255),ch((n>>8)&255),ch(n&255)];
+};
+
+/* ---- shaders ---- */
+const VERT=`
+attribute vec3 a_pos;attribute vec3 a_nrm;attribute vec4 a_aux;attribute vec3 a_base;
+uniform mat4 u_vp;uniform mat4 u_model;uniform vec2 u_offset;
+uniform float u_time;uniform float u_bloom;uniform float u_sway;uniform float u_stem;
+varying vec3 v_n;varying vec3 v_w;varying float v_s;
+void main(){
+  vec3 p=a_pos;float k=a_aux.z;
+  if(k<1.5){
+    float g=clamp(u_bloom*1.6-a_aux.w*0.6,0.0,1.0);
+    g=1.0-pow(1.0-g,3.0);
+    p=a_base+(p-a_base)*g;
+    float amp=(k<0.5?0.03:0.06)*u_sway*a_aux.x*a_aux.x;
+    p+=amp*vec3(sin(u_time*0.9+a_aux.y),0.5*sin(u_time*1.3+a_aux.y*1.7),cos(u_time*0.7+a_aux.y*1.3));
+  }else if(p.y<0.0){p.y*=u_stem;}
+  vec4 w=u_model*vec4(p,1.0);
+  v_w=w.xyz;v_n=(u_model*vec4(a_nrm,0.0)).xyz;v_s=a_aux.x;
+  gl_Position=u_vp*w;
+  gl_Position.xy+=u_offset*gl_Position.w;
+}`;
+/* red chrome: a dark studio, one softbox, a side strip, a rim — crimson throughout */
+const FRAG=`
+precision highp float;
+uniform vec3 u_eye;uniform vec3 u_red;uniform vec3 u_hot;uniform float u_alpha;
+varying vec3 v_n;varying vec3 v_w;varying float v_s;
+float studio(vec3 r){
+  float key=pow(max(dot(r,normalize(vec3(-0.45,0.85,0.35))),0.0),14.0)*2.6;
+  float strip=smoothstep(0.55,0.8,r.x)*smoothstep(-0.7,0.3,r.y)*1.4;
+  float rim=smoothstep(0.55,0.95,-r.z)*smoothstep(-0.2,0.5,r.y)*0.9;
+  float hz=exp(-abs(r.y-0.05)*7.0)*0.4;
+  return key+strip+rim+hz;
+}
+void main(){
+  vec3 n=normalize(v_n);vec3 v=normalize(u_eye-v_w);
+  if(dot(n,v)<0.0)n=-n;
+  vec3 r=reflect(-v,n);
+  float e=studio(r);
+  float fr=pow(1.0-max(dot(n,v),0.0),3.0);
+  float dif=max(dot(n,normalize(vec3(-0.3,0.8,0.6))),0.0);
+  vec3 col=u_red*(0.04+0.22*dif);
+  col+=u_red*e*1.15;
+  col+=u_hot*pow(e,3.0)*0.3;
+  col+=u_red*fr*1.1;
+  col*=0.8+0.2*smoothstep(0.0,0.25,v_s);
+  col=col/(1.0+col);
+  col=pow(col,vec3(1.0/2.2));
+  gl_FragColor=vec4(col*u_alpha,u_alpha);
+}`;
+
+/* ---- boot the specimen ---- */
+(function(){
+  const root=document.getElementById('specimen');
+  const stage=document.getElementById('stage');
+  const canvas=document.getElementById('cv');
+  const glow=document.getElementById('glow');
+  const wordH=document.getElementById('wordH');
+  const mqReduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+  const CRIMSON='#c9161d';
+  const NAME='Presence';
+
+  // cover word letters
+  const letters=Array.from(NAME);
+  const firstIdx=letters.findIndex(c=>c.trim()!=='');
+  const lastIdx=letters.length-1-[...letters].reverse().findIndex(c=>c.trim()!=='');
+  letters.forEach((c,i)=>{
+    const w=document.createElement('span');w.dataset.ch='';w.className='chw';
+    const s=document.createElement('span');s.className='ch';
+    s.style.animationDelay=(0.15+i*0.07)+'s';
+    s.textContent=c;
+    w.appendChild(s);wordH.appendChild(w);
+  });
+  const chars=Array.from(wordH.querySelectorAll('[data-ch]'));
+
+  // specimen glyph rows
+  const UP_L=["ABCD","EFGHI","JKLM"],LO_L=["abcdefg","hijklm"],AC_L=["ÀÁÂÃÄÅÆÇÈ","ÉÊËÌÍÎÏÑÒ","ÓÔÕÖØÙÚÛÜ"];
+  const UP_R=["NOPQ","RSTUV","WXYZ"],LO_R=["nopqrst","uvwxyz"],AC_R=["àáâãäåæçè","éêëìíîïñò","óôõöøùúûü"];
+  function glyphBlock(rows,size,lh){
+    const d=document.createElement('div');
+    d.style.fontSize=size;d.style.lineHeight=lh;
+    for(const r of rows){
+      const line=document.createElement('div');line.style.whiteSpace='nowrap';
+      for(const g of r){
+        const s=document.createElement('span');s.className='g';s.dataset.g=g;s.textContent=g;
+        line.appendChild(s);
+      }
+      d.appendChild(line);
+    }
+    return d;
+  }
+  const specL=document.getElementById('specL'),specR=document.getElementById('specR');
+  [[specL,UP_L,LO_L,AC_L],[specR,UP_R,LO_R,AC_R]].forEach(([el,UP,LO,AC])=>{
+    [['clip',0],['clip',.15],['clip',.3]].forEach(([fx,d],i)=>{
+      const wrap=document.createElement('div');
+      wrap.dataset.sc='2';wrap.dataset.fx=fx;wrap.dataset.d=String(el===specL?d:d+.1);
+      wrap.appendChild(glyphBlock([UP,LO,AC][i],
+        ['min(9cqw,7.4cqh)','min(6.6cqw,5.4cqh)','min(3.8cqw,3.2cqh)'][i],
+        i===2?'1.3':'1.02'));
+      el.appendChild(wrap);
+    });
+  });
+
+  // frame nav
+  const NAVL=['Cover','Crown','Specimen','Repertoire','Bloom','Finale'];
+  const snav=document.getElementById('snav');
+  const navBtns=NAVL.map((lab,i)=>{
+    const b=document.createElement('button');b.type='button';
+    b.innerHTML='<span class="tick"></span><span class="lab">'+lab+'</span>';
+    b.addEventListener('click',()=>jump(i));
+    snav.appendChild(b);return b;
+  });
+  const setNav=scene=>navBtns.forEach((b,i)=>{if(i===scene)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});
+  function jump(i){
+    const r=root.getBoundingClientRect();
+    const travel=r.height-stage.clientHeight;
+    window.scrollBy({top:(i/(SCENES-1))*travel+r.top,behavior:mqReduced.matches?'auto':'smooth'});
+  }
+
+  // glyph inspect
+  const ig=document.getElementById('ig'),icp=document.getElementById('icp'),nums=document.getElementById('nums');
+  const resetInspect=()=>{
+    ig.textContent='& ?';ig.classList.remove('big');
+    icp.textContent='HOVER A GLYPH';nums.style.display='';
+  };
+  stage.addEventListener('pointerover',e=>{
+    const g=e.target.dataset&&e.target.dataset.g;
+    if(!g)return;
+    ig.textContent=g;ig.classList.add('big');
+    icp.textContent='U+'+g.codePointAt(0).toString(16).toUpperCase().padStart(4,'0');
+    nums.style.display='none';
+  });
+  stage.addEventListener('pointerleave',resetInspect);
+
+  // liga toggle
+  const ligaWord=document.getElementById('ligaWord'),ligaBtn=document.getElementById('ligaBtn');
+  ligaBtn.addEventListener('click',()=>{
+    const on=ligaBtn.classList.toggle('on');
+    ligaBtn.setAttribute('aria-pressed',String(on));
+    ligaWord.style.fontFeatureSettings=on?'"liga" 1':'"liga" 0';
+  });
+
+  // ring dash setup
+  const ringPath=document.querySelector('.fin-ring path');
+  const ringLen=ringPath.getTotalLength();
+  ringPath.style.strokeDasharray=ringLen;
+  ringPath.style.strokeDashoffset=ringLen;
+
+  // geometry + GL
+  const {curves,radius}=buildCurves(6,11);
+  const mesh=buildMesh(curves);
+  let gl=null,ctx2d=null,program=null,vbo=null,ibo=null;
+  const loc={};
+  function initGL(){
+    gl=canvas.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:true});
+    if(!gl)return false;
+    const compile=(type,src)=>{
+      const sh=gl.createShader(type);
+      gl.shaderSource(sh,src);gl.compileShader(sh);
+      return gl.getShaderParameter(sh,gl.COMPILE_STATUS)?sh:null;
+    };
+    const vs=compile(gl.VERTEX_SHADER,VERT),fs=compile(gl.FRAGMENT_SHADER,FRAG);
+    if(!vs||!fs)return false;
+    program=gl.createProgram();
+    gl.attachShader(program,vs);gl.attachShader(program,fs);
+    gl.linkProgram(program);gl.useProgram(program);
+    vbo=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,vbo);
+    gl.bufferData(gl.ARRAY_BUFFER,mesh.data,gl.STATIC_DRAW);
+    ibo=gl.createBuffer();gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,ibo);
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,mesh.index,gl.STATIC_DRAW);
+    const attr=(n,size,off)=>{
+      const a=gl.getAttribLocation(program,n);
+      if(a<0)return;
+      gl.enableVertexAttribArray(a);
+      gl.vertexAttribPointer(a,size,gl.FLOAT,false,STRIDE*4,off*4);
+    };
+    attr('a_pos',3,0);attr('a_nrm',3,3);attr('a_aux',4,6);attr('a_base',3,10);
+    for(const n of['u_vp','u_model','u_offset','u_time','u_bloom','u_sway','u_stem','u_eye','u_red','u_hot','u_alpha'])
+      loc[n]=gl.getUniformLocation(program,n);
+    gl.enable(gl.DEPTH_TEST);gl.clearColor(0,0,0,0);
+    return true;
+  }
+  if(!initGL()){gl=null;ctx2d=canvas.getContext('2d');}
+
+  // measuring
+  let W=1,H=1,dpr=1,nat=[];
+  function measure(){
+    const sr=stage.getBoundingClientRect();
+    W=Math.max(1,sr.width);H=Math.max(1,sr.height);
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    const cw=Math.round(W*dpr),chh=Math.round(H*dpr);
+    if(canvas.width!==cw||canvas.height!==chh){canvas.width=cw;canvas.height=chh;}
+    const saved=chars.map(c=>c.style.transform);
+    chars.forEach(c=>c.style.transform='none');
+    nat=chars.map(c=>{
+      const r=c.getBoundingClientRect();
+      return{x:r.left+r.width/2-sr.left,y:r.top+r.height/2-sr.top,w:r.width};
+    });
+    chars.forEach((c,i)=>c.style.transform=saved[i]);
+  }
+  new ResizeObserver(measure).observe(stage);
+  measure();
+  if(document.fonts){document.fonts.ready.then(measure);}
+
+  // frame items
+  const items=Array.from(stage.querySelectorAll('[data-sc]')).map(el=>({
+    el,scene:Number(el.dataset.sc),fx:el.dataset.fx,delay:Number(el.dataset.d)||0,last:-1,
+    path:el.querySelector?el.querySelector('path'):null
+  }));
+
+  // input: tilt + drag-to-spin
+  const pointer={x:0,y:0,tx:0,ty:0};
+  let spin=0,spinVel=0,drag=null;
+  stage.addEventListener('pointermove',e=>{
+    const r=stage.getBoundingClientRect();
+    pointer.tx=((e.clientX-r.left)/r.width)*2-1;
+    pointer.ty=((e.clientY-r.top)/r.height)*2-1;
+    if(drag&&drag.id===e.pointerId){
+      spinVel+=(e.clientX-drag.x)*.0022;drag.x=e.clientX;
+    }
+  });
+  stage.addEventListener('pointerdown',e=>{
+    if(e.pointerType!=='mouse'||e.button!==0)return;
+    if(e.target.closest('a,button,.g'))return;
+    drag={id:e.pointerId,x:e.clientX};
+    stage.style.cursor='grabbing';
+  });
+  window.addEventListener('pointerup',()=>{drag=null;stage.style.cursor=''});
+
+  // loop
+  let raf=0,running=false,visible=true;
+  let last=performance.now();const born=last;
+  let time=0,prg01=-1,shownScene=-1;
+  function frame(now){
+    raf=requestAnimationFrame(frame);
+    const dt=Math.min(.05,(now-last)/1000);last=now;
+    const moving=!mqReduced.matches;
+    if(moving)time+=dt;
+
+    const r=root.getBoundingClientRect();
+    const p=progressFrom(r.top,r.height,H);
+    prg01=(prg01<0||mqReduced.matches)?p:prg01+(p-prg01)*(1-Math.exp(-dt*9));
+    const coord=sceneCoord(prg01,SCENES,HOLD);
+    const scene=Math.round(coord);
+    if(scene!==shownScene){shownScene=scene;setNav(scene);}
+
+    const tall=H>W*1.05;
+    const k=keyAt(coord,tall);
+    pointer.x+=(pointer.tx-pointer.x)*(1-Math.exp(-dt*4));
+    pointer.y+=(pointer.ty-pointer.y)*(1-Math.exp(-dt*4));
+    if(moving){spin+=spinVel+dt*.1;spinVel*=Math.exp(-dt*3);}
+    else{spin+=spinVel;spinVel=0;}
+    const px=moving?pointer.x:0,py=moving?pointer.y:0;
+    const fov=30*Math.PI/180,minDim=Math.min(W,H);
+    const dist=(radius*H)/(k.size*minDim*Math.tan(fov/2));
+    const el=Math.max(-88,Math.min(88,k.el+py*9))*Math.PI/180;
+    const eye=[HEART[0],HEART[1]+Math.sin(el)*dist,HEART[2]+Math.cos(el)*dist];
+    const proj=perspective(fov,W/H,Math.max(.05,dist-6),dist+8);
+    const vp=multiply(proj,lookAt(eye,HEART));
+    const model=multiply(rotY(k.spin+spin+px*.35),rotX(py*.05));
+    const bloomM=mqReduced.matches?1:clamp01((now-born)/2600);
+
+    const gx=(.5+k.ox/2)*W,gy=(.5-k.oy/2)*H,gr=k.size*minDim*1.25;
+    glow.style.transform='translate('+(gx-gr).toFixed(1)+'px,'+(gy-gr).toFixed(1)+'px)';
+    glow.style.width=glow.style.height=(gr*2).toFixed(1)+'px';
+
+    if(gl&&program){
+      gl.viewport(0,0,canvas.width,canvas.height);
+      gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+      const red=hexToLinear(CRIMSON);
+      gl.uniformMatrix4fv(loc.u_vp,false,vp);
+      gl.uniformMatrix4fv(loc.u_model,false,model);
+      gl.uniform2f(loc.u_offset,k.ox,k.oy);
+      gl.uniform1f(loc.u_time,time);
+      gl.uniform1f(loc.u_bloom,bloomM);
+      gl.uniform1f(loc.u_sway,moving?1:0);
+      gl.uniform1f(loc.u_stem,k.stem);
+      gl.uniform3f(loc.u_eye,eye[0],eye[1],eye[2]);
+      gl.uniform3f(loc.u_red,red[0]*2.2,red[1]*2.2,red[2]*2.2);
+      gl.uniform3f(loc.u_hot,1,.55+red[1],.5+red[2]);
+      gl.uniform1f(loc.u_alpha,1);
+      gl.drawElements(gl.TRIANGLES,mesh.index.length,gl.UNSIGNED_SHORT,0);
+    }else if(ctx2d){
+      const c=ctx2d,mvp=multiply(vp,model);
+      c.setTransform(dpr,0,0,dpr,0,0);
+      c.clearRect(0,0,W,H);
+      c.lineCap='round';c.strokeStyle=CRIMSON;c.shadowColor=CRIMSON;c.shadowBlur=12;
+      for(const cv of curves){
+        c.beginPath();
+        cv.pts.forEach((q,i)=>{
+          const y=cv.kind===2&&q[1]<0?q[1]*k.stem:q[1];
+          const cx=mvp[0]*q[0]+mvp[4]*y+mvp[8]*q[2]+mvp[12];
+          const cy=mvp[1]*q[0]+mvp[5]*y+mvp[9]*q[2]+mvp[13];
+          const cw=mvp[3]*q[0]+mvp[7]*y+mvp[11]*q[2]+mvp[15];
+          const sx=((cx/cw+k.ox)*.5+.5)*W;
+          const sy=(.5-(cy/cw+k.oy)*.5)*H;
+          i===0?c.moveTo(sx,sy):c.lineTo(sx,sy);
+        });
+        c.lineWidth=cv.kind===0?(minDim*k.size)/22:cv.kind===1?1.2:3;
+        c.stroke();
+      }
+    }
+
+    // type reveals
+    for(const it of items){
+      const v=reveal(coord,it.scene,it.delay);
+      const q=Math.round(v*500)/500;
+      if(q===it.last)continue;
+      it.last=q;
+      const s=it.el.style;
+      const dir=coord<it.scene?1:-1;
+      s.visibility=q<=0?'hidden':'';
+      if(it.fx==='draw'){
+        if(it.path)it.path.style.strokeDashoffset=String((1-q)*ringLen);
+        s.opacity=String(Math.min(1,q*3));
+        continue;
+      }
+      s.opacity=String(q);
+      if(mqReduced.matches||it.fx==='fade')continue;
+      if(it.fx==='clip'){
+        const hid=((1-q)*100).toFixed(1);
+        s.clipPath=dir>0?'inset(0 0 '+hid+'% 0)':'inset('+hid+'% 0 0 0)';
+        s.transform='translateY('+((1-q)*.4*dir).toFixed(3)+'em)';
+      }else{
+        s.transform='translateY('+((1-q)*34*dir).toFixed(1)+'px)';
+        s.filter=q>.995?'':'blur('+((1-q)*8).toFixed(1)+'px)';
+      }
+    }
+
+    // the cover word morphs into the crown: first & last letters flank it
+    const m=easeInOut(clamp01(coord)),out=clamp01(coord-1);
+    const k1=keyAt(1,tall),r1=k1.size*minDim*.5,cy1=(.5-k1.oy/2)*H;
+    chars.forEach((c,i)=>{
+      const n0=nat[i];if(!n0)return;
+      const flank=i===firstIdx||i===lastIdx;
+      if(flank&&firstIdx!==lastIdx){
+        const side=i===firstIdx?-1:1;
+        const tx=W/2+side*(r1+n0.w*.55+minDim*.02);
+        const dx=(tx-n0.x)*m,dy=(cy1-n0.y)*m-out*60;
+        const o=coord<1?1:1-smoothstep(.1,.45,out);
+        c.style.transform='translate('+dx.toFixed(1)+'px,'+dy.toFixed(1)+'px)';
+        c.style.opacity=String(o);
+        c.style.filter=(mqReduced.matches||out<.05)?'':'blur('+(out*14).toFixed(1)+'px)';
+      }else{
+        const dx=(W/2-n0.x)*m*.75,dy=(cy1-n0.y)*m;
+        const o=1-smoothstep(0,.4,m);
+        c.style.transform=mqReduced.matches?'':'translate('+dx.toFixed(1)+'px,'+dy.toFixed(1)+'px) scale('+(1-m*.7).toFixed(3)+')';
+        c.style.opacity=String(o);
+        c.style.filter=(mqReduced.matches||m<.02)?'':'blur('+(m*12).toFixed(1)+'px)';
+      }
+      c.style.visibility=coord>1.6?'hidden':'';
+    });
+  }
+  function start(){if(running||!visible||document.hidden)return;running=true;last=performance.now();raf=requestAnimationFrame(frame);}
+  function stop(){running=false;cancelAnimationFrame(raf);}
+  new IntersectionObserver(([e])=>{visible=e.isIntersecting;visible?start():stop();}).observe(root);
+  document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+  start();
+})();
+
+/* ================================================================
+   PART II — the studio floor
+================================================================ */
+const $=id=>document.getElementById(id);
+let toastTimer;
+function toast(msg){
+  const t=$('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),3600);
+}
+
+/* marquee loop */
+(function(){const t=$('mtrack');t.innerHTML+=t.innerHTML;})();
+
+/* reveals */
+(function(){
+  const io=new IntersectionObserver(es=>{
+    es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('[data-rv]').forEach(el=>io.observe(el));
+})();
+
+/* typewriter quotes — hover (in view on touch) */
+function setupType(el){
+  const full=el.dataset.text;
+  const ghost=el.querySelector('.ghost'),live=el.querySelector('.live');
+  ghost.textContent=full;
+  live.textContent=full;
+  el.classList.add('idle');
+  let started=false;
+  const start=()=>{
+    if(started)return;started=true;
+    el.classList.remove('idle');
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    live.textContent='';
+    el.classList.add('typing');
+    let i=0;
+    (function step(){
+      if(i<=full.length){
+        live.textContent=full.slice(0,i);i++;
+        setTimeout(step,24+Math.random()*26);
+      }else{
+        setTimeout(()=>el.classList.remove('typing'),2200);
+      }
+    })();
+  };
+  el.addEventListener('mouseenter',start);
+  if(!window.matchMedia('(hover: hover)').matches){
+    new IntersectionObserver((es,o)=>{
+      es.forEach(en=>{if(en.isIntersecting){start();o.disconnect();}});
+    },{threshold:.5}).observe(el);
+  }
+}
+document.querySelectorAll('.type').forEach(setupType);
+
+/* ================================================================
+   talking to the backend (server.js)
+================================================================ */
+async function api(path,body){
+  const opts=body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{};
+  let res;
+  try{res=await fetch(path,opts);}
+  catch(e){throw Object.assign(new Error('cannot reach the server — is it running?'),{offline:true});}
+  const data=await res.json().catch(()=>({}));
+  if(!res.ok)throw Object.assign(new Error(data.error||'something went wrong'),{field:data.field});
+  return data;
+}
+const WD=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const dayLabel=iso=>{const[y,m,d]=iso.split('-').map(Number);const dt=new Date(y,m-1,d);return WD[dt.getDay()]+' · '+d+' '+MO[m-1];};
+
+/* the week — real availability from the server */
+async function buildSchedule(){
+  const wrap=$('sched');
+  if(!wrap.children.length)wrap.innerHTML='<p class="sched-msg">checking the calendar…</p>';
+  let data;
+  try{data=await api('/api/slots?days=7');}
+  catch(err){
+    wrap.innerHTML='<p class="sched-msg">The calendar is resting ('+esc(err.message)+'). You can still use the form below.</p>';
+    return;
+  }
+  let html='';
+  data.days.forEach((day,i)=>{
+    const tag=i===0?'today':i===1?'tomorrow':'';
+    html+='<div class="day" data-rv>'+
+      '<div class="day-head"><span>'+esc(dayLabel(day.date))+'</span>'+(tag?'<span class="day-tag">'+tag+'</span>':'')+'</div>';
+    const slots=day.slots.filter(s=>s.status!=='past');
+    if(day.closed||!slots.length){
+      const reason=day.closed?(day.closedReason||'closed'):'no more hours today';
+      html+='<div class="slot rest"><div class="slot-head-static">'+
+        '<span class="slot-time">'+(day.closed?'all day':'—')+'</span>'+
+        '<span class="slot-main"><span class="slot-name">'+esc(reason)+'</span><span class="slot-note">'+(reason==='rest day'?'even I yin':'see you tomorrow')+'</span></span>'+
+        '<span class="slot-avail held">closed</span></div></div>';
+    }else{
+      slots.forEach(s=>{
+        const full=s.status==='held';
+        const chip=full?'<span class="slot-avail held">held</span>':'<span class="slot-avail open">open</span>';
+        const attrs='data-date="'+day.date+'" data-time="'+esc(s.time)+'" data-day="'+esc(dayLabel(day.date))+'"';
+        const body=full
+          ?'<div class="slot-inner"><div class="sd"><h4>the hold</h4><p>Taken by an earlier booking. Leave your name and number — if it frees up, you\'ll hear first.</p></div>'+
+           '<form class="wl-form" '+attrs+'>'+
+           '<input name="name" placeholder="your name" autocomplete="name" required maxlength="80">'+
+           '<input name="contact" type="tel" placeholder="whatsapp / phone" autocomplete="tel" required maxlength="30">'+
+           '<button class="text-btn" type="submit">join the waitlist</button></form></div>'
+          :'<div class="slot-inner">'+
+           '<div class="sd"><h4>the room</h4><p>your choice — the coffee place with the good light · the park with the dogs · your living room (shoes off, obviously)</p></div>'+
+           '<div class="sd"><h4>prerequisites</h4><p>please be a woman · roughly on time · emotional baggage welcome, within airline limits</p></div>'+
+           '<div class="sd"><h4>to bring</h4><p>yourself · water · gossip (optional)</p></div>'+
+           '<button class="btn reserve" type="button" '+attrs+'>reserve this hour</button></div>';
+        html+='<div class="slot'+(full?' full':'')+'">'+
+          '<button class="slot-head" type="button" aria-expanded="false">'+
+          '<span class="slot-time">'+esc(s.time)+'</span>'+
+          '<span class="slot-main"><span class="slot-name">'+esc(s.name)+'</span><span class="slot-note">'+esc(s.note)+'</span></span>'+
+          chip+
+          '<span class="chev"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>'+
+          '</button><div class="slot-body">'+body+'</div></div>';
+      });
+    }
+    html+='</div>';
+  });
+  wrap.innerHTML=html;
+
+  wrap.querySelectorAll('.slot:not(.rest)').forEach(slot=>{
+    const head=slot.querySelector('.slot-head'),body=slot.querySelector('.slot-body');
+    head.addEventListener('click',()=>{
+      const wasOpen=slot.classList.contains('open');
+      wrap.querySelectorAll('.slot.open').forEach(s=>{
+        s.classList.remove('open');
+        s.querySelector('.slot-body').style.maxHeight='0px';
+        s.querySelector('.slot-head').setAttribute('aria-expanded','false');
+      });
+      if(!wasOpen){
+        slot.classList.add('open');
+        body.style.maxHeight=body.scrollHeight+'px';
+        head.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+  wrap.querySelectorAll('.reserve').forEach(b=>{
+    b.addEventListener('click',async()=>{
+      $('f-date').value=b.dataset.date;
+      await refreshHourOptions();
+      $('f-time').value=b.dataset.time;
+      $('f-date').closest('.field').classList.remove('err');
+      $('f-time').closest('.field').classList.remove('err');
+      toast(b.dataset.day+' · '+b.dataset.time+' — noted. Finish the form and it\'s tentatively yours.');
+      $('book').scrollIntoView({behavior:'smooth'});
+    });
+  });
+  wrap.querySelectorAll('.wl-form').forEach(f=>{
+    f.addEventListener('submit',async e=>{
+      e.preventDefault();
+      const btn=f.querySelector('button');btn.disabled=true;
+      try{
+        await api('/api/waitlist',{name:f.name.value,contact:f.contact.value,date:f.dataset.date,time:f.dataset.time});
+        f.outerHTML='<p class="slot-note">on the waitlist. if it frees up, you\'ll hear first.</p>';
+        toast('waitlist noted. the universe has been informed.');
+      }catch(err){toast(err.message);btn.disabled=false;}
+    });
+  });
+  const io=new IntersectionObserver(es=>{
+    es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  wrap.querySelectorAll('[data-rv]').forEach(el=>io.observe(el));
+}
+
+/* in the form: grey out hours that are already taken on the chosen date */
+async function refreshHourOptions(){
+  const date=$('f-date').value,sel=$('f-time');
+  [...sel.options].forEach(o=>{o.disabled=false;o.textContent=o.textContent.replace(/ — (held|passed|closed)$/,'');});
+  if(!date)return;
+  try{
+    const{days}=await api('/api/slots?start='+encodeURIComponent(date)+'&days=1');
+    const day=days[0];
+    if(!day||day.date!==date)return;
+    [...sel.options].forEach(o=>{
+      if(!o.value)return;
+      let why='';
+      if(day.closed)why='closed';
+      else{const s=day.slots.find(x=>x.time===o.value);if(s&&s.status!=='open')why=s.status==='past'?'passed':'held';}
+      if(why){o.disabled=true;o.textContent+=' — '+why;if(sel.value===o.value)sel.value='';}
+    });
+    if(day.closed)toast('that day is closed ('+day.closedReason+') — pick another');
+  }catch(e){/* the server will double-check anyway */}
+}
+
+buildSchedule();
+// refresh every 2 minutes, but never while someone has an hour opened
+setInterval(()=>{if(!document.hidden&&!document.querySelector('#sched .slot.open'))buildSchedule();},120000);
+
+/* optional Razorpay deposit (only if switched on in .env) */
+function loadRazorpay(){
+  return new Promise((ok,fail)=>{
+    if(window.Razorpay)return ok();
+    const s=document.createElement('script');
+    s.src='https://checkout.razorpay.com/v1/checkout.js';s.onload=ok;s.onerror=()=>fail(new Error('could not load the payment window'));
+    document.head.append(s);
+  });
+}
+async function payDeposit(booking,contact){
+  await loadRazorpay();
+  return new Promise(resolve=>{
+    const rz=new window.Razorpay({
+      key:booking.payment.keyId,order_id:booking.payment.orderId,amount:booking.payment.amount,currency:booking.payment.currency,
+      name:'Presence.',description:'Deposit · '+booking.ref,
+      prefill:{name:booking.name,contact},theme:{color:'#c9161d'},
+      handler:async r=>{
+        try{await api('/api/bookings/'+encodeURIComponent(booking.ref)+'/payment',r);resolve('paid');}
+        catch(e){resolve('unverified');}
+      },
+      modal:{ondismiss:()=>resolve('skipped')},
+    });
+    rz.open();
+  });
+}
+
+/* booking form + confirmation modal */
+(function(){
+  const form=$('bookForm'),modal=$('modal');
+  const today=new Date(),pad=v=>String(v).padStart(2,'0');
+  const todayISO=today.getFullYear()+'-'+pad(today.getMonth()+1)+'-'+pad(today.getDate());
+  $('f-date').min=todayISO;
+  api('/api/config').then(c=>{
+    $('f-date').min=c.today;
+    const[y,m,d]=c.today.split('-').map(Number);
+    const max=new Date(y,m-1,d+c.maxDaysAhead);
+    $('f-date').max=max.getFullYear()+'-'+pad(max.getMonth()+1)+'-'+pad(max.getDate());
+  }).catch(()=>{});
+  $('f-date').addEventListener('change',refreshHourOptions);
+
+  ['f-name','f-contact','f-date','f-time','f-practice'].forEach(id=>{
+    const el=$(id);
+    const clear=()=>el.closest('.field').classList.remove('err');
+    el.addEventListener('input',clear);el.addEventListener('change',clear);
+  });
+  $('f-lady').addEventListener('change',e=>e.target.closest('.check').classList.remove('err'));
+
+  function openModal(ref,rows){
+    $('mRef').textContent=ref;
+    const sum=$('mSum');sum.innerHTML='';
+    rows.forEach(([k,v])=>{
+      const row=document.createElement('div');row.className='m-row';
+      const dt=document.createElement('dt');dt.textContent=k;
+      const dd=document.createElement('dd');dd.textContent=v;
+      row.append(dt,dd);sum.append(row);
+    });
+    modal.classList.add('show');modal.setAttribute('aria-hidden','false');
+  }
+  const closeModal=()=>{modal.classList.remove('show');modal.setAttribute('aria-hidden','true');};
+  $('mClose').addEventListener('click',closeModal);
+  $('modalBack').addEventListener('click',closeModal);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('show'))closeModal();});
+
+  function markBad(field,msg){
+    const el=$(field);if(!el)return;
+    const box=el.closest('.field')||el.closest('.check');
+    if(box){box.classList.add('err');const m=box.querySelector('.msg');if(m&&msg)m.textContent=msg;}
+    el.focus();
+  }
+
+  let sending=false;
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    if(sending)return;
+    const checks=[
+      ['f-name',v=>v.trim().length>1],
+      ['f-contact',v=>v.replace(/\D/g,'').length>=7],
+      ['f-date',v=>!!v],
+      ['f-time',v=>!!v],
+      ['f-practice',v=>!!v],
+    ];
+    let firstBad=null;
+    checks.forEach(([id,test])=>{
+      const el=$(id),ok=test(el.value);
+      el.closest('.field').classList.toggle('err',!ok);
+      if(!ok&&!firstBad)firstBad=el;
+    });
+    const lady=$('f-lady'),ladyOk=lady.checked;
+    lady.closest('.check').classList.toggle('err',!ladyOk);
+    if(firstBad||!ladyOk){
+      toast('the gentleman requires a few more details');
+      (firstBad||lady).focus();
+      return;
+    }
+
+    const contact=$('f-contact').value.trim();
+    const tSel=$('f-time'),pSel=$('f-practice');
+    const hourLabel=tSel.options[tSel.selectedIndex].textContent;
+    const btn=$('submitBtn');
+    sending=true;btn.disabled=true;
+    let booking;
+    try{
+      booking=await api('/api/bookings',{
+        name:$('f-name').value,contact,date:$('f-date').value,time:tSel.value,
+        practice:pSel.value,request:$('f-req').value,lady:lady.checked,website:$('f-website').value,
+      });
+    }catch(err){
+      toast(err.message);
+      if(err.field)markBad(err.field,err.message);
+      if(err.field==='f-time'||err.field==='f-date'){refreshHourOptions();buildSchedule();}
+      return;
+    }finally{sending=false;btn.disabled=false;}
+
+    let paid=null;
+    if(booking.payment){
+      try{paid=await payDeposit(booking,contact);}catch(e){paid='skipped';}
+    }
+
+    const dObj=new Date(booking.date+'T00:00:00');
+    const dstr=isNaN(dObj.getTime())?booking.date:dObj.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+    let req=booking.request;
+    req=req?(req.length>90?req.slice(0,90)+'…':req):'— to be revealed, over tea';
+    const rows=[
+      ['for',booking.name.split(/\s+/)[0]],
+      ['date',dstr],
+      ['hour',hourLabel],
+      ['practice',booking.practice],
+      ['mission',req],
+    ];
+    if(paid)rows.push(['deposit',paid==='paid'?'paid — thank you':'not paid yet — we\'ll sort it on WhatsApp']);
+    openModal(booking.ref,rows);
+    form.reset();
+    refreshHourOptions();
+    buildSchedule();
+    toast('hold placed — the kettle is on.');
+  });
+})();
+
+/* opt-in chime: arm on click, ring once on next scroll */
+(function(){
+  const btn=$('chime'),label=$('chimeLabel');
+  let armed=false,ctx=null;
+  function playChime(){
+    const t=ctx.currentTime;
+    [[440,.05],[880,.11],[1174.66,.06]].forEach(([f,g])=>{
+      const o=ctx.createOscillator(),gn=ctx.createGain();
+      o.type='sine';o.frequency.value=f;
+      gn.gain.setValueAtTime(0.0001,t);
+      gn.gain.exponentialRampToValueAtTime(g,t+0.03);
+      gn.gain.exponentialRampToValueAtTime(0.0001,t+3);
+      o.connect(gn);gn.connect(ctx.destination);
+      o.start(t);o.stop(t+3.1);
+    });
+  }
+  function fire(){
+    if(!armed)return;
+    armed=false;
+    try{playChime();}catch(e){}
+    btn.classList.remove('armed');
+    btn.setAttribute('aria-pressed','false');
+    label.textContent='played';
+    toast('a soft chime. you may continue.');
+  }
+  btn.addEventListener('click',()=>{
+    armed=!armed;
+    if(armed){
+      if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)();
+      ctx.resume();
+      btn.classList.add('armed');
+      btn.setAttribute('aria-pressed','true');
+      label.textContent='armed';
+      toast('chime armed — scroll when ready');
+      window.addEventListener('scroll',fire,{once:true,passive:true});
+    }else{
+      btn.classList.remove('armed');
+      label.textContent='chime';
+      window.removeEventListener('scroll',fire);
+    }
+  });
+})();
+</script>
+</body>
+</html>
